@@ -25,9 +25,12 @@ public class AdminController extends HttpServlet {
 			ab.setPass(request.getParameter("password"));
 			AdminBean s1=AdminDao.CheckLogin(ab);
 			if(s1==null) {
-				out.println("wrong email id and password");
-				request.getRequestDispatcher("login.jsp").include(request, response);
-				
+				//out.println("alert('wrong email id and password')");
+			//	request.getRequestDispatcher("adminlogin.jsp").include(request, response);
+				out.println("<script type=\"text/javascript\">");
+				   out.println("alert('User or password incorrect');");
+				   out.println("location='adminlogin.jsp';");
+				   out.println("</script>");
 			}else {
 				HttpSession session=request.getSession();
 				session.setAttribute("s1", s1);

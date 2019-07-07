@@ -3,6 +3,8 @@ package dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.List;
+import java.util.Map;
 
 import beans.ClientBean;
 import beans.ClientToBldBean;
@@ -10,7 +12,7 @@ import util.MainUtil;
 
 public class ClientDao {
 	
-	public static void AddClient(ClientBean cb,String[] s){
+	public static void AddClient(ClientBean cb,Map<String,String> allData){
 		ClientToBldBean ctb=null;
 		ClientBean c=null;
 		try {
@@ -33,17 +35,28 @@ public class ClientDao {
 				pst2.setString(1, cb.getEmail());
 				ResultSet rs=pst2.executeQuery();
 				if(rs.next()){
-					ctb=new ClientToBldBean();
-					ctb.setCid(rs.getInt("client_id"));
-					ctb.setBldid(s);
-					for(String ss:s){
-						
-						String sql3="insert into client_to_bld(cid, bldid) values(?, ?)";
+				//	ctb=new ClientToBldBean();
+			//		ctb.setCid(rs.getInt("client_id"));
+					//ctb.setBldid(s);
+					
+//					for(String ss:s){
+//						
+//						String sql3="insert into client_to_bld(cid, bldid) values(?, ?)";
+//						PreparedStatement pst3=conn.prepareStatement(sql3);
+//						//pst3.setInt(1, ctb.getCid());
+//						pst3.setInt(1, rs.getInt("client_id"));
+//						pst3.setInt(2, Integer.parseInt(ss));
+//						pst3.executeUpdate();
+//					}
+					for(Map.Entry<String, String> entry:allData.entrySet()) {
+						String sql3="insert into client_to_bld(cid,bldid,slot_id) values(?,?,?)";
 						PreparedStatement pst3=conn.prepareStatement(sql3);
-						pst3.setInt(1, ctb.getCid());
-						pst3.setInt(2, Integer.parseInt(ss));
+						pst3.setInt(1, rs.getInt("client_id"));
+						pst3.setInt(2, Integer.parseInt(entry.getKey()));
+						pst3.setInt(3, Integer.parseInt(entry.getValue()));
 						pst3.executeUpdate();
 					}
+					
 					
 				}
 				
@@ -55,7 +68,7 @@ public class ClientDao {
 
 
 }
-	public static void AddClientToBld(ClientBean cb,String[] s){
+	public static void AddClientToBld(ClientBean cb,List<String> s){
 		ClientToBldBean ctb=null;
 		try {
 			
@@ -71,7 +84,7 @@ public class ClientDao {
 					for(String ss:s){
 						String sql3="insert into client_to_bld(cid, bldid) values(?, ?)";
 						PreparedStatement pst3=conn.prepareStatement(sql3);
-						pst3.setInt(1, ctb.getCid());
+						pst3.setInt(1, rs.getInt("client_id"));
 						pst3.setInt(2, Integer.parseInt(ss));
 						pst3.executeUpdate();
 					}

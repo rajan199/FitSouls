@@ -1,14 +1,18 @@
 package beans;
 
+import java.util.List;
+
 public class ClientToBldBean {
 	private int id,cid;
-	private String[] bldid;
+	private List<String> bldid;
 
-	public String[] getBldid() {
+	
+
+	public List<String> getBldid() {
 		return bldid;
 	}
 
-	public void setBldid(String[] bldid) {
+	public void setBldid(List<String> bldid) {
 		this.bldid = bldid;
 	}
 

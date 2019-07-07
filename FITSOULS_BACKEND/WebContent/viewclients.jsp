@@ -33,7 +33,7 @@ if(session!=null){
 	
 	%>
 	
-	<sql:setDataSource driver="com.mysql.jdbc.Driver" url="jdbc:mysql://localhost:3306/fitsouls_backend" password="root" user="root" var="DB"/>
+	<sql:setDataSource driver="com.mysql.jdbc.Driver" url="jdbc:mysql://localhost:3306/fitsouls_backend" password="" user="root" var="DB"/>
 <sql:query var="Rec" dataSource="${DB}">
 select * from client_tbl
 

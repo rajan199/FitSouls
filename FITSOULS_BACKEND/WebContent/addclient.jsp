@@ -14,7 +14,22 @@
 	<link type="text/css" href="css/theme.css" rel="stylesheet">
 	<link type="text/css" href="images/icons/css/font-awesome.css" rel="stylesheet">
 	<link type="text/css" href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,600' rel='stylesheet'>
+ <script language="javascript">
+function inspectbox() {
+ if (document.forms.addPlan.bld1.checked) document.forms.addPlan.bslot.style.visibility = 'visible'; else document.forms.addPlan.bslot.style.visibility  = 'hidden';
+}
+function inspectbox2() {
+ if (document.forms.addPlan.bld2.checked) document.forms.addPlan.lslot.style.visibility = 'visible'; else document.forms.addPlan.lslot.style.visibility = 'hidden';
+}
+function inspectbox3() {
+	 if (document.forms.addPlan.bld3.checked) document.forms.addPlan.dslot.style.visibility = 'visible'; else document.forms.addPlan.dslot.style.visibility = 'hidden';
+	}
+</script> 
+
+
 </head>
+
+
 <body>
 <%
 // this code is prevent user to go back to the previous page
@@ -198,7 +213,7 @@ if(session!=null){
 							</div>
 							<div class="module-body">
 									<br />
-									<form class="form-horizontal row-fluid" action="ClientController" method="post">
+									<form name="addPlan" class="form-horizontal row-fluid" action="ClientController" method="post">
 										<div class="control-group">
 											<label class="control-label" for="basicinput">Client Name:</label>
 											<div class="controls">
@@ -256,15 +271,15 @@ if(session!=null){
 											
 											<div class="controls">
 												<label class="checkbox inline">
-													<input type="checkbox" value="1" name="bld">
+													<input type="checkbox" value="1" name="bld1" onClick="inspectbox()">
 													Breakfast
 												</label>
 												<label class="checkbox inline">
-													<input type="checkbox" value="2" name="bld">
+													<input type="checkbox" value="2" name="bld2" onClick="inspectbox2()">
 													Lunch
 												</label>
 												<label class="checkbox inline">
-													<input type="checkbox" value="3" name="bld">
+													<input type="checkbox" value="3" name="bld3" onClick="inspectbox3()">
 													Dinner
 												</label>
 											</div>
@@ -273,16 +288,16 @@ if(session!=null){
 										<div class="control-group">
 											<label class="control-label" for="basicinput">Delivery Slots:</label>
 											<div class="controls">
-												<select tabindex="1" data-placeholder="Breakfast" name="bslot" class="span8">
+												<select tabindex="1" data-placeholder="Breakfast" name="bslot" class="span8" style="visibility:hidden" >
 													<option value="" disable>Breakfast</option>
 													<option value="1">7:00am-8:00am</option>
 													<option value="2">8:00am-9:00am</option>
 													<option value="3">9:00am-10:00am</option>
-													<option value="4">10a:00am-11:00am</option>
+													<option value="4">10:00am-11:00am</option>
 												</select>
 											</div>
 											<div class="controls">
-												<select tabindex="1" data-placeholder="Lunch" name="lslot" class="span8">
+												<select tabindex="1" data-placeholder="Lunch" name="lslot" class="span8" style="visibility:hidden">
 													<option value="" disable>Lunch</option>
 													<option value="5">11:00am-12:00pm</option>
 													<option value="6">12:00pm-1:00pm</option>
@@ -291,7 +306,7 @@ if(session!=null){
 												</select>
 											</div>
 											<div class="controls">
-												<select tabindex="1" data-placeholder="Dinner" name="dslot" class="span8">
+												<select tabindex="1" data-placeholder="Dinner" name="dslot" class="span8" style="visibility:hidden">
 													<option value="" disable>Dinner</option>
 													<option value="12">6:00pm-7:00pm</option>
 													<option value="13">7:00pm-8:00pm</option>
