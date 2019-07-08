@@ -133,7 +133,9 @@ JOIN bld AS t3 ON t2.id=t3.bidid -->
 							</li>
 							<li><a href="viewclients.jsp"><i class="menu-icon icon-bullhorn"></i>View Clients</a>
                                 </li>
-							
+							<li><a href="adddishes.jsp"><i class="menu-icon icon-bullhorn"></i>Add Dish</a>
+                                </li>
+							<li>
 							<li>
 								<a href="task.html">
 									<i class="menu-icon icon-tasks"></i>

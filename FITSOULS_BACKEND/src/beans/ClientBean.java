@@ -2,7 +2,13 @@ package beans;
 
 public class ClientBean {
 	private int id, payment;
-	private String cname, address, contact, plan_start, plan_end, mealtype,email,bslot,lslot,dslot;
+	private String cname, address, contact, plan_start, plan_end, mealtype,email,bslot,lslot,dslot,status;
+	public String getStatus() {
+		return status;
+	}
+	public void setStatus(String status) {
+		this.status = status;
+	}
 	public String getBslot() {
 		return bslot;
 	}

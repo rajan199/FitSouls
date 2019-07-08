@@ -98,6 +98,10 @@ if(session!=null){
                                 <li><a href="viewclients.jsp"><i class="menu-icon icon-bullhorn"></i>View Clients</a>
                                 </li>
                                 
+                                <li><a href="adddishes.jsp"><i class="menu-icon icon-bullhorn"></i>Add Dish</a>
+                                </li>
+								<li><a href="addingridients.jsp"><i class="menu-icon icon-bullhorn"></i>Add Ingridients</a>
+                                </li>                                
                                 <li><a href="message.html"><i class="menu-icon icon-inbox"></i>Inbox <b class="label green pull-right">
                                     11</b> </a></li>
                                 <li><a href="task.html"><i class="menu-icon icon-tasks"></i>Tasks <b class="label orange pull-right">

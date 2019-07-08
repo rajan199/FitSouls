@@ -18,7 +18,7 @@ public class ClientDao {
 		try {
 			
 				Connection conn=MainUtil.CreateCon();
-				String sql="insert into client_tbl(client_name, address, contact, plan_start, plan_end, payment, meal_type, email) values(?, ?, ?, ?, ?, ?, ?, ?)";
+				String sql="insert into client_tbl(client_name, address, contact, plan_start, plan_end, payment, meal_type, email, status) values(?, ?, ?, ?, ?, ?, ?, ?, ?)";
 				PreparedStatement pst=conn.prepareStatement(sql);
 				pst.setString(1, cb.getCname());
 				pst.setString(2, cb.getAddress());
@@ -28,6 +28,7 @@ public class ClientDao {
 				pst.setInt(6, cb.getPayment());
 				pst.setString(7, cb.getMealtype());
 				pst.setString(8, cb.getEmail());
+				pst.setString(9, cb.getStatus());
 				pst.executeUpdate();
 				
 				String sql2="select * from client_tbl where email=?";

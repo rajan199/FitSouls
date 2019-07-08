@@ -33,6 +33,7 @@ public class ClientController extends HttpServlet {
 			cb.setPlan_start(request.getParameter("sdate"));
 			cb.setPlan_end(request.getParameter("edate"));
 			cb.setMealtype(request.getParameter("mealtype"));
+			cb.setStatus(request.getParameter("status"));
 			cb.setPayment(Integer.parseInt(request.getParameter("payment")));
 			/*cb.setBslot(request.getParameter("bslot"));
 			cb.setLslot(request.getParameter("lslot"));
